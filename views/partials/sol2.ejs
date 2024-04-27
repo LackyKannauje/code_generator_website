@@ -1,0 +1,45 @@
+//Example
+#include < stdio.h > 
+#include < math.h >
+int main()
+{
+    int i,num = 17;
+    int isPrime= 1;
+    
+    
+    // 0, 1 and negative numbers are not prime
+    if(num < 2){
+        isPrime = 0;
+    }
+    else{
+    // Number n is not a prime, it can be factored into two factors a & b:
+    // n = a * b (Excluding 1 & n)
+
+    /*Now a & b can't be both greater than the square root of n, since
+    then the product a * b would be greater than sqrt(n) * sqrt(n) = n.
+    So in any factorization of n, at least one of the factors must be
+    smaller than the square root of n, and if we can't find any factors
+    less than or equal to the square root, n must be a prime.
+    */
+        for(i=2; i <= sqrt(num); i++)
+        {
+            if(num % i == 0)
+            {
+                isPrime = 0;
+                break;
+            }
+        }
+    }
+
+    if(isPrime)
+        printf("%d is Prime", num);
+    else
+        printf("%d is not Prime", num);
+ 
+    return 0;
+}
+//Time Complexity: O(√N)
+//Space Complexity O(1)
+
+// This code is better than previous code as we
+// 1. Loop runs b/w [2,√num] rather than previous [2, n/2]

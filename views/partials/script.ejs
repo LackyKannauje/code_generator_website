@@ -1,0 +1,78 @@
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-java.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-c.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-csharp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-cpp.min.js"></script>
+
+<script>
+
+    
+
+    function copyToClipboard(containerId) {
+        var range = document.createRange();
+        range.selectNode(document.getElementById(containerId));
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();
+        alert("Copied to clipboard successfully!");
+
+    }
+    var currentSlide = 1;
+    var totalSlides = 3;
+
+    function showSlide(slideNumber) {
+
+        for (var i = 1; i <= totalSlides; i++) {
+            document.getElementById('codeBlock' + i).style.display = 'none';
+        }
+
+        document.getElementById('codeBlock' + slideNumber).style.display = 'block';
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        if (currentSlide === 0) {
+            currentSlide = totalSlides;
+        }
+        showSlide(currentSlide);
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide % totalSlides) + 1;
+        showSlide(currentSlide);
+    }
+    function toggleDarkMode() {
+        var switchElement = document.getElementById('flexSwitchCheckDefault');
+        var htmlElement = document.querySelector('html');
+        var themeLink = document.getElementById('style-mode');
+        if (switchElement.checked) {
+            htmlElement.setAttribute('data-bs-theme', 'dark');
+            themeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-okaidia.min.css';
+            localStorage.setItem('darkmode', 'true');
+        } else {
+            htmlElement.setAttribute('data-bs-theme', 'light');
+            themeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism.min.css';
+            localStorage.removeItem('darkmode');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var darkModeEnabled = localStorage.getItem('darkmode') === 'true';
+        var switchElement = document.getElementById('flexSwitchCheckDefault');
+        if (darkModeEnabled) {
+            switchElement.checked = true;
+            toggleDarkMode(); // Apply dark mode if it was previously enabled
+        }
+    });
+
+
+    
+
+    showSlide(currentSlide);
+</script>
