@@ -41,13 +41,13 @@ Follow these steps to run the project locally.
 
 [HOMEPAGE]![{91A3B1F7-66C3-4612-B085-D1CF526A2AD2}](https://github.com/user-attachments/assets/d23e4955-54b1-4112-85f4-52a3d765964a)
 
-</br>
+
 [Query Inputs]![{283E6F45-546A-4275-AD64-1CB5A6839354}](https://github.com/user-attachments/assets/3a57f77b-2c52-4f4e-9e80-8f78de690ace)
 
-</br>
+
 [three Different Solutions]![{05479D83-7D55-4BE8-8FAA-F9BCDC404444}](https://github.com/user-attachments/assets/0552358b-93a6-4aa4-b879-e3260291812a)
 
-</br>
+
 
 
 🧑‍🏫 How It Works
